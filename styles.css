@@ -104,3 +104,9 @@ header .current-date{
 .days li:not(.active):hover::before{
   background: #f2f2f2;
 }
+
+
+.active-yes {
+    background-color: green; /* Change this to the color you want */
+    color: #fff; /* Change this to the text color you want */
+}

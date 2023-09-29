@@ -54,6 +54,8 @@ prevNextIcon = document.querySelectorAll(".icons span");
 let date = new Date(),
 currYear = date.getFullYear(),
 currMonth = date.getMonth();
+
+
 // storing full name of all months in array
 const months = ["January", "February", "March", "April", "May", "June", "July",
               "August", "September", "October", "November", "December"];
@@ -100,7 +102,17 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
 function trackerAnsYes() {
     let yes = document.getElementById("yes-button").value
     console.log(yes);
+
+    const currentDateElement = document.querySelector(".active");
+
+    if(currentDateElement) {
+        currentDateElement.classList.remove("active");
+        currentDateElement.classList.add("active-yes");
+    }
+
 };
+const yesButton = document.getElementById("yes-button");
+yesButton.addEventListener("click", trackerAnsYes);
 
 function trackerAnsNo() {
     let no = document.getElementById("no-button").value
