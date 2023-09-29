@@ -26,4 +26,4 @@ Order:
 	- On the calendar page the user can click rather or not they successfully did the task for the day or if they did not.
 	- If yes is clicked a tracker will appear showing their streak and will be given praise and a motivational quote also the user will be encouraged to do the task the said they would that reinforces the behavior.
 	- If no is clicked a tracker will appear showing they've broken their streak and will be given a motivational quote encouraging them to restart and continue forward. and also to do whatever they listed as a consequence.
-	- after the user has pressed continue. they will return to the calendar page with a updated view of the calendar showing there progress.
+	- after the user has pressed continue. they will return to the calendar page with a updated view of the calendar showing their progress.
