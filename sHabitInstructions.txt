@@ -1,0 +1,29 @@
+Habit Tracker:
+
+- A tracker dedicated to the purpose of creating and/or changing habits.
+- A daily tracker
+- Motivational
+- Rewards for consistency
+- "Why?"
+- Once the user has specified the the habit they're trying to create, they can list counter habits they can practice to stay on goal.
+	+ If user stays on task they are rewarded with a motivational praise. Or get permission to access there reqard.
+	+ If user fails to stay on track or continues the habit they get a consequence the agreed on, but also recive motivation to keep pursuing their goal.
+
+
+Order:
+	- State the habit the user is trying to create or change.
+	- State the counter habits the user will use to promote this change.
+	- State the rewards for promoting this change.
+	- State the consequences for failing at staying on track.
+	- Once user has confirmed what they are trying to achieve, the choose a date the they want to reach this goal by. 
+	- After they pick the frequency of accountability.
+	- User submits data and is redirected to a page outlining what they want
+
+	- Once user is on comfirmation page they can go over what the information they put in and correct if necessary.
+	- If the user agrees to the information given they can click start.
+	- If user clicks start the are redirected to a calendar
+
+	- On the calendar page the user can click rather or not they successfully did the task for the day or if they did not.
+	- If yes is clicked a tracker will appear showing their streak and will be given praise and a motivational quote also the user will be encouraged to do the task the said they would that reinforces the behavior.
+	- If no is clicked a tracker will appear showing they've broken their streak and will be given a motivational quote encouraging them to restart and continue forward. and also to do whatever they listed as a consequence.
+	- after the user has pressed continue. they will return to the calendar page with a updated view of the calendar showing there progress.
