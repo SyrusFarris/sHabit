@@ -7,12 +7,12 @@
         <link rel="stylesheet" href="../styles.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     </head>
-    <body onload="displayData()">
+    <body> <!-- onload="displayData()" -->
         
-        <div class="tracker-container">
-            <h2 class="tracker-prompt"> Did you suceed today?</h2>
-                <button type="button" id="yes-button" value="yes" onclick="trackerAnsYes()">YES</button>
-                <button type="button" id="no-button" value="no" onclick="trackerAnsNo()">NO</button>
+        <div class="tracker-container" method="POST">
+            <h2 class="tracker-prompt">Did you suceed today?</h2>
+            <button type="button" id="yes-button" value="yes" onclick="trackerAnsYes()">YES</button>
+            <button type="button" id="no-button" value="no" onclick="trackerAnsNo()">NO</button>
         </div>
 
         <!-- Code for basic Calendar -->
