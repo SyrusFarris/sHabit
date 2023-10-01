@@ -99,6 +99,12 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
 
 // Scripts for tacker
 
+const yesButton = document.getElementById("yes-button");
+const noButton = document.getElementById("no-button");
+
+yesButton.addEventListener("click", trackerAnsYes);
+noButton.addEventListener("click", trackerAnsNo);
+
 function trackerAnsYes() {
     let yes = document.getElementById("yes-button").value
     console.log(yes);
@@ -111,10 +117,16 @@ function trackerAnsYes() {
     }
 
 };
-const yesButton = document.getElementById("yes-button");
-yesButton.addEventListener("click", trackerAnsYes);
+
 
 function trackerAnsNo() {
     let no = document.getElementById("no-button").value
     console.log(no);
+
+    const currentDateElement = document.querySelector(".active");
+
+    if(currentDateElement) {
+        currentDateElement.classList.remove("active");
+        currentDateElement.classList.add("active-no");
+    }
 };

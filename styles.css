@@ -105,8 +105,13 @@ header .current-date{
   background: #f2f2f2;
 }
 
-
+/* Cahing color of day based on user's input of "yes" or "no" */
 .active-yes {
-    background-color: green; /* Change this to the color you want */
-    color: #fff; /* Change this to the text color you want */
+    background-color: green; 
+    color: #fff; 
+}
+
+.active-no {
+  background-color: red;
+  color:#fff;
 }
