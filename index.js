@@ -115,8 +115,8 @@ prevNextIcon.forEach(icon => {
 
 // Scripts for tracker
 
-const yesButton = document.querySelector("#yes-button");
-const noButton = document.querySelector("#no-button");
+const yesButton = document.getElementById("yes-button");
+const noButton = document.getElementById("no-button");
 
 yesButton.addEventListener("click", trackerAnsYes);
 noButton.addEventListener("click", trackerAnsNo);
@@ -135,6 +135,9 @@ function trackerAnsYes() {
     if (currentDateElement) {
         currentDateElement.classList.remove("active");
         currentDateElement.classList.add("active-yes");
+    } if (yes) {
+        document.getElementById("praise").style.visibility = "visible";
+    } else {
     }
 };
 
@@ -151,6 +154,9 @@ function trackerAnsNo() {
     if (currentDateElement) {
         currentDateElement.classList.remove("active");
         currentDateElement.classList.add("active-no");
+    } if (no) {
+        document.getElementById("keep-on").style.visibility = "visible";
+    } else{
     }
 };
 

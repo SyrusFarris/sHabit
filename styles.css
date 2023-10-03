@@ -115,3 +115,11 @@ header .current-date{
   background-color: red;
   color:#fff;
 }
+
+.praise {
+  visibility: hidden;
+}
+
+.keep-on {
+  visibility: hidden;
+}
