@@ -2,17 +2,11 @@
 
 function collectData() {
     let habit = document.getElementById('habit').value;
-    console.log(habit);
     let reinforcer = document.getElementById('reinforcer').value;
-    console.log(reinforcer);
     let reward = document.getElementById('reward').value;
-    console.log(reward);
     let consequence = document.getElementById('consequence').value;
-    console.log(consequence);
     let endDate = document.getElementById('endDate').value;
-    console.log(endDate);
     let frequency = document.querySelector('input[name="frequency"]:checked').value;
-    console.log(frequency);
 
     // Saving data in local storage
     localStorage.setItem("habit", habit);
@@ -34,6 +28,7 @@ function displayData() {
     let consequence = localStorage.getItem("consequence");
     let endDate = localStorage.getItem("endDate");
     let frequency = localStorage.getItem("frequency");
+    let dateStatus = localStorage.getItem("dateStatus");
 
     document.getElementById("habit").textContent = habit;
     document.getElementById("reinforcer").textContent = reinforcer;
@@ -41,6 +36,7 @@ function displayData() {
     document.getElementById("consequence").textContent = consequence;
     document.getElementById("endDate").textContent = endDate;
     document.getElementById("frequency").textContent = frequency;
+    document.getElementById("dateStatus").textContent = dateStatus;
 };
 
 // Scripts for Calendar
@@ -54,15 +50,13 @@ let date = new Date();
 let currYear = date.getFullYear();
 let currMonth = date.getMonth();
 
-const dateStatus = {
-    "2023-09-30": "yes",
-    "2023-10-02": "no",
-};
+let dateStatus = {};
 
 // Storing full names of all months in an array
 const months = ["January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December"];
 
+////////// New Render Calendar function /////////////////
 const renderCalendar = () => {
     let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(); // Getting first day of month
     let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(); // Getting last date of month
@@ -70,21 +64,33 @@ const renderCalendar = () => {
     let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // Getting last date of previous month
     let liTag = "";
 
-    for (let i = firstDayofMonth; i > 0; i--) {
-        // Creating li of previous month last days
-        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+    // Generate li elements for the days of the previous month
+    for (let i = firstDayofMonth - 1; i >= 0; i--) {
+        const dateKey = `${currYear}-${currMonth}-${lastDateofLastMonth - i}`;
+        let isPast = new Date(dateKey) < new Date(); // Check if the date is in the past
+        let isYes = dateStatus[dateKey] === "yes";
+        let isNo = dateStatus[dateKey] === "no";
+        let isToday = isPast ? (isYes ? "active-yes" : (isNo ? "active-no" : "")) : "";
+        liTag += `<li class="inactive ${isToday}">${lastDateofLastMonth - i}</li>`;
     }
 
+    // Generate li elements for the days of the current month
     for (let i = 1; i <= lastDateofMonth; i++) {
         const dateKey = `${currYear}-${currMonth + 1}-${i}`;
-        let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";
-        isToday += dateStatus[dateKey] === "yes" ? " active-yes" : (dateStatus[dateKey] === "no" ? " active-no" : ""); // Apply the "active-yes" or "active-no" class if marked
+        let isPast = new Date(dateKey) < new Date(); // Check if the date is in the past
+        let isYes = dateStatus[dateKey] === "yes";
+        let isNo = dateStatus[dateKey] === "no";
+        let isToday = isPast ? (isYes ? "active-yes" : (isNo ? "active-no" : "")) : "";
         liTag += `<li class="${isToday}">${i}</li>`;
     }
 
-    for (let i = lastDayofMonth; i < 6; i++) {
-        // Creating li of next month first days
-        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
+    // Generate li elements for the days of the next month
+    for (let i = 1; i < 6 - lastDayofMonth; i++) {
+        const dateKey = `${currYear}-${currMonth + 2}-${i}`;
+        let isYes = dateStatus[dateKey] === "yes";
+        let isNo = dateStatus[dateKey] === "no";
+        let isToday = isYes ? "active-yes" : (isNo ? "active-no" : "");
+        liTag += `<li class="inactive ${isToday}">${i}</li>`;
     }
 
     currentDate.innerText = `${months[currMonth]} ${currYear}`; // Passing current month and year as currentDate text
@@ -137,7 +143,10 @@ function trackerAnsYes() {
         currentDateElement.classList.add("active-yes");
     } if (yes) {
         document.getElementById("praise").style.visibility = "visible";
+        document.getElementById("keep-on").style.visibility = "hidden";
     } else {
+        document.getElementById("keep-on").style.visibility = "visible";
+        document.getElementById("praise").style.visibility = "hidden";
     }
 };
 
@@ -156,10 +165,17 @@ function trackerAnsNo() {
         currentDateElement.classList.add("active-no");
     } if (no) {
         document.getElementById("keep-on").style.visibility = "visible";
+        document.getElementById("praise").style.visibility = "hidden";
     } else{
+        document.getElementById("praise").style.visibility = "visible";
+        document.getElementById("keep-on").style.visibility = "hidden";
     }
 };
 
 function updateDateStatus(dateKey, status) {
     dateStatus[dateKey] = status;
+    
+    // stores response to local storage
+    localStorage.setItem("dateStatus", JSON.stringify(dateStatus));
+    console.log(dateStatus);
 };
