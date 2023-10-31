@@ -1,0 +1,25 @@
+<label for="habit"> What habit are you trying to create or break?</label><br>
+<input type="text" id="habit" value="Habit"><br>
+
+<label for="reinforcer"> Please list a reinforcer </label><br>
+<input type="text" id="reinforcer" value="Reinforcer"><br>
+
+<label for="reward"> How do you want to be rewarded for staying on track?</label><br>
+<input type="text" id="reward" value="Reward"><br>
+
+<label for="consequence"> What do you want to be your consequence for not staying on track?</label><br>
+<input type="text" id="consequence" value="Consequence"><br>
+
+<label for="endDate"> By what date you want to create this habit?</label><br>
+<input type="text" id="endDate" value="yyyy-MM-dd" min="2023-01-01" max="2099-01-01"><br>
+
+
+<input type="radio" id="daily" name="frequency" value="Daily">
+<label for="daily">Daily</label><br>
+<input type="radio" id="weekly" name="frequency" value="Weekly">
+<label for="weekly">Weekly</label><br>
+<input type="radio" id="monthly" name="frequency" value="Monthly">
+<label for="monthly">Monthly</label><br>
+
+<a href="/setup.ejs" class="btn">Cancel</a>
+<button type="submit" value="Submit" onclick="collectData()">Save</button>

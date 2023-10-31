@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Habit Maker</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    </head>
+
+    <body onload="displayData()">
+
+        <div>
+        <h1> Does everything look correct?</h1>
+        <p> Remember these are your goals and you can adjust them accordingly to fit your needs and you unique journey for success!</p>
+        </div>
+
+        <div>The habit you want to create or change is <span id="habit"></span></div><br>
+        <div>Your goal is to work towards this <span id="frequency"></span></div><br>
+        <div>You will trade out this habit with <span id="reinforcer"></span> to help you win</div><br>
+        <div>You will reward yourself by <span id="reward"></span> every time you suceed and you will <span id="consequence"></span> everytime you fail, recollect and get back on track as soon as possible</div><br>
+        <div>And you want to achieve this by <span id="endDate"></span></div><br>
+
+        <button onclick="window.location.href = 'tracker.ejs';">I AM READY!</button>
+
+        <script src="../index.js"></script>
+    </body>
+</html>

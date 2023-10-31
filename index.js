@@ -50,7 +50,10 @@ let date = new Date();
 let currYear = date.getFullYear();
 let currMonth = date.getMonth();
 
-let dateStatus = {};
+let dateStatus = {
+    "2023-10-05" : "yes",
+};
+//console.log(dateStatus);
 
 // Storing full names of all months in an array
 const months = ["January", "February", "March", "April", "May", "June", "July",

@@ -101,9 +101,9 @@ header .current-date{
 .days li.active::before{
   background: #9B59B6;
 }
-.days li:not(.active):hover::before{
+/*.days li:not(.active):hover::before{
   background: #f2f2f2;
-}
+}*/
 
 /* Cahing color of day based on user's input of "yes" or "no" */
 .active-yes {

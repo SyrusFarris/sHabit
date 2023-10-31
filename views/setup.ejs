@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Habit Maker</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    </head>
+
+    <body>
+
+        <div>
+            <h1> Your Journey Has Begun</h1>
+            <p> Congratualtions on taking your first step on creating new habits. Rather it's something small or big this tracker is designed to help you stay on task and to encourage you to push harder for what you want!</p>
+        </div>
+
+        <div>
+            <h2> Lets Get Started</h2>
+            <p> Below please fill out the form so we can get an idea of what your main goal is and help you stay on track. We will use this information to help you achive what you want and create a timeline to assist you.</p>
+
+            <form method="POST" action="./confirmation.ejs">
+
+                <label for="habit"> What habit are you trying to create or break?</label><br>
+                <input type="text" id="habit" value="Habit"><br>
+
+                <label for="reinforcer"> Please list a reinforcer </label><br>
+                <input type="text" id="reinforcer" value="Reinforcer"><br>
+
+                <label for="reward"> How do you want to be rewarded for staying on track?</label><br>
+                <input type="text" id="reward" value="Reward"><br>
+
+                <label for="consequence"> What do you want to be your consequence for not staying on track?</label><br>
+                <input type="text" id="consequence" value="Consequence"><br>
+
+                <label for="endDate"> By what date you want to create this habit?</label><br>
+                <input type="text" id="endDate" value="yyyy-MM-dd" min="2023-01-01" max="2099-01-01"><br>
+
+            <p> How often do you want to work towards building this habit</p> 
+
+                <input type="radio" id="daily" name="frequency" value="Daily">
+                <label for="daily">Daily</label><br>
+                <input type="radio" id="weekly" name="frequency" value="Weekly">
+                <label for="weekly">Weekly</label><br>
+                <input type="radio" id="monthly" name="frequency" value="Monthly">
+                <label for="monthly">Monthly</label><br>
+
+                <input type="submit" value="Submit" onclick="collectData()">
+
+            </form>
+
+        </div>
+
+        <script src="../index.js"></script>
+    </body>
+</html>
